@@ -1,0 +1,20 @@
+.loginContainer {
+  background-image: url("../img/loginImg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loginFormContainer {
+  width: 400px;
+  height: 450px;
+  padding: 40px;
+  background-color: #082b51;
+}
