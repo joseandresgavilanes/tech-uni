@@ -5,5 +5,33 @@
 }
 
 body {
-  background-color: red;
+  background-color: #121213 !important;
+}
+
+.mainTextColor {
+  color: #6c7293 !important;
+}
+
+.fullHeight {
+  height: 100%;
+}
+
+.bg-body-tertiary {
+  background-color: #191c24 !important;
+}
+
+.bg-body-tertiary-secondary {
+  background-color: #0c0e12 !important;
+}
+
+.border-primary {
+  border-color: #6c72933d !important;
+}
+
+.bigIcon {
+  font-size: 98px !important;
+}
+
+.rightMenu {
+  left: -80px !important;
 }
