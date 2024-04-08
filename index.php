@@ -11,8 +11,7 @@
 </head>
 <body>
 <?php include 'components/navbar/navbar.php'; ?>
-<?php include 'login/login.php'; ?>
-
+<?php include 'components/sidebar/sidebar.php'; ?>
 </body>
 
 
