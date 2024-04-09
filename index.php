@@ -1,3 +1,22 @@
+<?php
+    session_start();
+
+	$username ="username";
+	$password_hash='$2y$10$Q60tY6R/mZ.YgnmcS6eEquxGubUeQ449Zg6K1FgwzTP9XGSScqBIy'; //hola
+
+	if(isset($_POST['username']) && isset($_POST['password'])){
+		if($_POST['username'] == $username && password_verify($_POST['password'], $password_hash)){
+			echo "Credencias okay";
+			$_SESSION["username"] = $_POST['username'];
+			header('Location: components/sidebar/sidebar.php');
+		}else{
+			echo "Credencias erradas";
+		}
+	}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
@@ -10,8 +29,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-<?php include 'components/navbar/navbar.php'; ?>
-<?php include 'components/sidebar/sidebar.php'; ?>
+
+<div class="container-fluid loginContainer" >
+        <div class="container">
+            <div class="heading">Sign In</div>
+            <form action="" class="form" method="POST">
+                <input required="" class="input" type="text" name="username" id="username" placeholder="E-mail">
+                <input required="" class="input" type="password" name="password" id="password" placeholder="Password">
+                <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+                <input class="login-button" type="submit" value="Sign In">
+            </form>
+        </div>
+    </div>
+
 </body>
 
 
