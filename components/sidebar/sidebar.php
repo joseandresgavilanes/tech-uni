@@ -19,7 +19,6 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <?php include '../navbar/navbar.php';?>
 <div class="container-fluid">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-body-tertiary">
@@ -27,7 +26,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <a class="w-100 d-flex align-items-center pt-4 pb-3 mb-md-0 me-md-auto text-white text-decoration-none border-bottom border-1 border-primary">
                         <img src="https://github.com/mdo.png" alt="user image" width="32" height="32" class="rounded-circle">
-                        <div class="ms-3 d-flex flex-column " >
+                        <div class="ms-3 d-flex flex-column d-none d-md-block " >
                             <h5 class="fw-bold mb-0 mainTextColor">Jhon Doe</h5>
                             <span class="mainTextColor fontSmall">User</span>
 

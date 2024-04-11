@@ -22,14 +22,14 @@ body {
 }
 
 .switchCard {
-  height: 125px;
+  height: 175px;
   padding: 28px 25px 28px 25px;
   display: flex;
 }
 
 .userCard {
-  height: 245px;
-  padding: 14px 6px;
+  height: 345px;
+  padding: 18px 6px;
 }
 
 /* The switch - the box around the slider */
@@ -147,4 +147,11 @@ body {
 .switch input:checked + .toggle > .right {
   transform: rotateX(10deg) rotateY(0deg);
   color: #487bdb;
+}
+
+@media only screen and (min-width: 992px) {
+  .userCard {
+    height: 245px;
+    padding: 14px 6px;
+  }
 }

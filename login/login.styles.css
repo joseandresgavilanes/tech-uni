@@ -3,8 +3,6 @@
   background-size: cover;
   background-position: center;
   height: 500px;
-  color: white;
-  padding: 20px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,7 +17,7 @@
   background-color: #082b51;
 }
 
-.loginContainer .container {
+.loginFormContainer {
   max-width: 350px;
   background: #f8f9fd;
   background: linear-gradient(
@@ -27,25 +25,25 @@
     rgb(255, 255, 255) 0%,
     rgb(244, 247, 251) 100%
   );
-  border-radius: 40px;
+  border-radius: 24px;
   padding: 25px 35px;
   border: 5px solid rgb(255, 255, 255);
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
   margin: 20px;
 }
 
-.loginContainer .heading {
+.loginHeading {
   text-align: center;
   font-weight: 900;
   font-size: 30px;
   color: rgb(23, 91, 161);
 }
 
-.loginContainer .form {
+.loginForm {
   margin-top: 20px;
 }
 
-.loginContainer .form .input {
+.loginForm .loginInput {
   width: 100%;
   background: white;
   color: rgb(23, 91, 161);
@@ -57,32 +55,32 @@
   border-inline: 2px solid transparent;
 }
 
-.loginContainer .form .input::-moz-placeholder {
+.loginForm .loginInput::-moz-placeholder {
   color: rgb(170, 170, 170);
 }
 
-.loginContainer .form .input::placeholder {
+.loginForm .loginInput::placeholder {
   color: rgb(170, 170, 170);
 }
 
-.loginContainer .form .input:focus {
+.loginForm .loginInput:focus {
   outline: none;
   border-inline: 2px solid #12b1d1;
 }
 
-.loginContainer .form .forgot-password {
+.loginForm .forgot-password {
   display: block;
   margin-top: 10px;
   margin-left: 10px;
 }
 
-.loginContainer .form .forgot-password a {
+.loginForm .forgot-password a {
   font-size: 11px;
   color: #0099ff;
   text-decoration: none;
 }
 
-.loginContainer .form .login-button {
+.loginForm .loginButton {
   display: block;
   width: 100%;
   font-weight: bold;
@@ -100,75 +98,12 @@
   transition: all 0.2s ease-in-out;
 }
 
-.loginContainer .form .login-button:hover {
+.loginForm .loginButton:hover {
   transform: scale(1.03);
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
 }
 
-.loginContainer .form .login-button:active {
+.loginForm .loginButton:active {
   transform: scale(0.95);
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
-}
-
-.loginContainer .social-account-container {
-  margin-top: 25px;
-}
-
-.loginContainer .social-account-container .title {
-  display: block;
-  text-align: center;
-  font-size: 10px;
-  color: rgb(170, 170, 170);
-}
-
-.loginContainer .social-account-container .social-accounts {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 5px;
-}
-
-.loginContainer .social-account-container .social-accounts .social-button {
-  background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
-  border: 5px solid white;
-  padding: 5px;
-  border-radius: 50%;
-  width: 40px;
-  aspect-ratio: 1;
-  display: grid;
-  place-content: center;
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
-  transition: all 0.2s ease-in-out;
-}
-
-.loginContainer .social-account-container .social-accounts .social-button .svg {
-  fill: white;
-  margin: auto;
-}
-
-.loginContainer
-  .social-account-container
-  .social-accounts
-  .social-button:hover {
-  transform: scale(1.2);
-}
-
-.loginContainer
-  .social-account-container
-  .social-accounts
-  .social-button:active {
-  transform: scale(0.9);
-}
-
-.loginContainer .agreement {
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-}
-
-.loginContainer .agreement a {
-  text-decoration: none;
-  color: #0099ff;
-  font-size: 9px;
 }
