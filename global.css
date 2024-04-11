@@ -30,9 +30,13 @@ body {
 
 .bigIcon {
   font-size: 98px !important;
+  margin-left: 8px;
 }
 
 .rightMenu {
   left: -80px !important;
 }
 
+.fontSmall {
+  font-size: 12px !important;
+}

@@ -6,7 +6,7 @@ $valor_sensor_wind=file_get_contents("../../api/files/sensors/wind/wind.txt");
 ?>
 <div class="row g-4">
                         <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card dashboardCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-row">
+                            <div class="card dashboardCard bg-body-tertiary border-0 d-flex align-items-center justify-content-center flex-row">
                                 <div>
                                     <h6 class="fw-bold fs-6 mb-0">Temperature</h6>
                                     <div class="w-100 d-flex align-items-center justify-content-between">
@@ -16,14 +16,14 @@ $valor_sensor_wind=file_get_contents("../../api/files/sensors/wind/wind.txt");
                                         </div>
                                     </div>
                                 </div>
-                                <span class="bigIcon text-primary material-symbols-outlined">
-                                    light_mode
-                                </span>
+                                <span class="bigIcon <?php echo $valor_sensor_temperatura > 20 ? 'text-warning' : 'text-primary'; ?> material-symbols-outlined">
+    <?php echo $valor_sensor_temperatura > 20 ? 'light_mode' : 'ac_unit'; ?>    
+</span>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card dashboardCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-row">
+                            <div class="card dashboardCard bg-body-tertiary border-0 d-flex align-items-center justify-content-center flex-row">
                                 <div>
                                     <h6 class="fw-bold fs-6 mb-0">Humidity</h6>
                                     <div class="w-100 d-flex align-items-center justify-content-between">
@@ -33,14 +33,15 @@ $valor_sensor_wind=file_get_contents("../../api/files/sensors/wind/wind.txt");
                                         </div>
                                     </div>
                                 </div>
-                                <span class="bigIcon text-primary material-symbols-outlined">
-                                    humidity_mid
+                                <span class="bigIcon <?php echo $valor_sensor_humidity > 40 ? 'text-primary' : 'text-info'; ?> material-symbols-outlined">
+                                    <?php echo $valor_sensor_humidity > 40 ? "rainy" : "humidity_mid" ?>    
+
                                 </span>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card dashboardCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-row">
+                            <div class="card dashboardCard bg-body-tertiary border-0 d-flex align-items-center justify-content-center flex-row">
                                 <div>
                                     <h6 class="fw-bold fs-6 mb-0">Wind</h6>
                                     <div class="w-100 d-flex align-items-center justify-content-between">
@@ -50,8 +51,8 @@ $valor_sensor_wind=file_get_contents("../../api/files/sensors/wind/wind.txt");
                                         </div>
                                     </div>
                                 </div>
-                                <span class="bigIcon text-primary material-symbols-outlined">
-                                    air
+                                <span class="bigIcon <?php echo $valor_sensor_wind > 30 ? 'text-primary' : 'text-white'; ?> material-symbols-outlined">
+                                    <?php echo $valor_sensor_wind > 30 ? "air" : "airwave" ?>    
                                 </span>
                             </div>
                         </div>
