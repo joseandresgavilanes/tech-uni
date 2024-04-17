@@ -6,6 +6,9 @@ if (!isset($_SESSION['username'])) {
     // Redirect to index.php for login
     include 'index.php';
     exit(); // Important to stop script execution after including the login
+}else{
+
+    $current_user = $_SESSION["username"];
 }
 ?>
 <!DOCTYPE html>
@@ -33,9 +36,9 @@ if (!isset($_SESSION['username'])) {
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <!-- User profile -->
                 <a class="w-100 d-flex align-items-center pt-4 pb-3 mb-md-0 me-md-auto text-white text-decoration-none border-bottom border-1 border-primary">
-                    <img src="https://github.com/mdo.png" alt="user image" width="32" height="32" class="rounded-circle">
+                    <img src=<?php echo $current_user == 'username' ? "../../img/loginImg.jpg" : "../../img/profile_dandadan.png" ?> alt="user image" width="32" height="32" class="rounded-circle">
                     <div class="ms-3 d-flex flex-column d-none d-md-block " >
-                        <h5 class="fw-bold mb-0 mainTextColor">Jhon Doe</h5>
+                        <h5 class="fw-bold mb-0 mainTextColor"><?php echo $current_user;?>  </h5>
                         <span class="mainTextColor fontSmall">User</span>
                     </div>
                 </a>
