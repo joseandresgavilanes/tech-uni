@@ -13,9 +13,9 @@
     <tbody>
     <?php
     // Read temperature, humidity, and wind logs
-    $temperature_logs = file_get_contents('../../api/files/sensors/temperature/log_temperature.txt');
-    $humidity_logs = file_get_contents('../../api/files/sensors/humidity/log_humidity.txt');
-    $wind_logs = file_get_contents('../../api/files/sensors/wind/log_wind.txt');
+    $temperature_logs = file_get_contents('../../api/files/sensors/temperature/log.txt');
+    $humidity_logs = file_get_contents('../../api/files/sensors/humidity/log.txt');
+    $wind_logs = file_get_contents('../../api/files/sensors/wind/log.txt');
 
     // Split log data into arrays
     $temperature_values = explode("\n", $temperature_logs);

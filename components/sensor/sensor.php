@@ -1,8 +1,8 @@
 <?php 
 // Retrieve sensor data from respective files
-$valor_sensor_temperatura = file_get_contents("../../api/files/sensors/temperature/temperature.txt");
-$valor_sensor_humidity = file_get_contents("../../api/files/sensors/humidity/humidity.txt");
-$valor_sensor_wind = file_get_contents("../../api/files/sensors/wind/wind.txt");
+$valor_sensor_temperatura = file_get_contents("../../api/files/sensors/temperature/valor.txt");
+$valor_sensor_humidity = file_get_contents("../../api/files/sensors/humidity/valor.txt");
+$valor_sensor_wind = file_get_contents("../../api/files/sensors/wind/valor.txt");
 ?>
 
 <div class="row g-4">
