@@ -27,8 +27,6 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-<?php include '../navbar/navbar.php'; ?>
-
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <!-- Sidebar -->
@@ -36,7 +34,7 @@ if (!isset($_SESSION['username'])) {
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <!-- User profile -->
                 <a class="w-100 d-flex align-items-center pt-4 pb-3 mb-md-0 me-md-auto text-white text-decoration-none border-bottom border-1 border-primary">
-                    <img src=<?php echo $current_user == 'username' ? "../../img/loginImg.jpg" : "../../img/profile_dandadan.png" ?> alt="user image" width="32" height="32" class="rounded-circle">
+                    <img src=<?php echo $current_user == 'username' ? "../../img/profile_jose.jpg" : "../../img/profile_dandadan.png" ?> alt="user image" width="32" height="32" class="rounded-circle">
                     <div class="ms-3 d-flex flex-column d-none d-md-block " >
                         <h5 class="fw-bold mb-0 mainTextColor"><?php echo $current_user;?>  </h5>
                         <span class="mainTextColor fontSmall">User</span>
@@ -52,12 +50,51 @@ if (!isset($_SESSION['username'])) {
                             </span> <span class="ms-2 d-none d-sm-inline mainTextColor">Dashboard</span> 
                         </a>
                     </li>
-                    <!-- History link -->
+                    
                     <li>
-                        <a href="?page=history" class="nav-link px-0 align-middle d-flex align-items-center">
+                        <a href="?page=temperature" class="nav-link px-0 align-middle d-flex align-items-center">
+                            <span class="material-symbols-outlined mainTextColor">
+                            thermometer
+                            </span><span class="ms-2 d-none d-sm-inline mainTextColor">Temperature</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=humidity" class="nav-link px-0 align-middle d-flex align-items-center">
+                            <span class="material-symbols-outlined mainTextColor">
+                            humidity_percentage
+                            </span><span class="ms-2 d-none d-sm-inline mainTextColor">Humidity</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="?page=wind" class="nav-link px-0 align-middle d-flex align-items-center">
+                            <span class="material-symbols-outlined mainTextColor">
+                                air
+                            </span><span class="ms-2 d-none d-sm-inline mainTextColor">Wind</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="?page=led" class="nav-link px-0 align-middle d-flex align-items-center">
+                            <span class="material-symbols-outlined mainTextColor">
+                            lightbulb
+                            </span><span class="ms-2 d-none d-sm-inline mainTextColor">Led</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="?page=door" class="nav-link px-0 align-middle d-flex align-items-center">
+                            <span class="material-symbols-outlined mainTextColor">
+                            sensor_door
+                            </span><span class="ms-2 d-none d-sm-inline mainTextColor">Main Door</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="?page=air_conditioning" class="nav-link px-0 align-middle d-flex align-items-center">
                             <span class="material-symbols-outlined mainTextColor">
                                 schedule
-                            </span><span class="ms-2 d-none d-sm-inline mainTextColor">History</span>
+                            </span><span class="ms-2 d-none d-sm-inline mainTextColor">Air Conditioning</span>
                         </a>
                     </li>
                     <li>
@@ -84,7 +121,22 @@ if (!isset($_SESSION['username'])) {
                 case 'dashboard':
                     include '../../dashboard/dashboard.php';
                     break;
-                case 'history':
+                case 'temperature':
+                    include '../../history/history.php';
+                    break;
+                case 'humidity':
+                    include '../../history/history.php';
+                    break;
+                case 'wind':
+                    include '../../history/history.php';
+                    break;
+                case 'led':
+                    include '../../history/history.php';
+                    break;
+                case 'door':
+                    include '../../history/history.php';
+                    break;
+                case 'air_conditioning':
                     include '../../history/history.php';
                     break;
                 default:

@@ -4,41 +4,55 @@
         <tr>
             <!-- Column headers -->
             <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="col">#</th>
-            <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="col">Temperature</th>
-            <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="col">Humidity</th>
-            <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="col">Wind</th>
+            <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="col">Value</th>
+            <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="col">Date</th>
         </tr>
     </thead>
     <!-- Table body -->
     <tbody>
     <?php
-    // Read temperature, humidity, and wind logs
-    $temperature_logs = file_get_contents('../../api/files/sensors/temperature/log.txt');
-    $humidity_logs = file_get_contents('../../api/files/sensors/humidity/log.txt');
-    $wind_logs = file_get_contents('../../api/files/sensors/wind/log.txt');
 
-    // Split log data into arrays
-    $temperature_values = explode("\n", $temperature_logs);
-    $humidity_values = explode("\n", $humidity_logs);
-    $wind_values = explode("\n", $wind_logs);
+    $sensor = isset($_GET['page']) ? $_GET['page'] : '';
 
-    // Determine maximum length of the arrays
-    $max_length = max(count($temperature_values), count($humidity_values), count($wind_values));
+    echo $sensor;
 
-    // Loop through each row of the table
-    for ($index = 0; $index < $max_length; $index++) {
-        ?>
-        <tr>
-            <!-- Row number -->
-            <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="row"><?php echo $index + 1; ?></th>
-            <!-- Temperature value -->
-            <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($temperature_values[$index]) ? $temperature_values[$index] ."°" : ''; ?></td>
-            <!-- Humidity value -->
-            <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($humidity_values[$index]) ? $humidity_values[$index] . '%' : ''; ?></td>
-            <!-- Wind value -->
-            <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($wind_values[$index]) ? $wind_values[$index] . 'k/h' : ''; ?></td>
-        </tr>
-        <?php
+
+    if (!empty($sensor)) {
+        // Read sensor logs
+        $sensor_logs = file_get_contents("../../api/files/sensors_actuators/$sensor/log.txt");
+        // Split log data into arrays
+        $sensor_values = explode("\n", $sensor_logs);
+
+        // Dividir los datos de los logs en arrays
+        $log_lines = explode("\n", $sensor_logs);
+    
+        // Iterar sobre cada línea de log
+        foreach ($log_lines as $log_line) {
+            // Dividir cada línea en "valor" y "hora" usando ":" como separador
+            $log_parts = explode(":", $log_line);
+            $sensor_data[] = $log_parts[0]; // Valor
+            $sensor_times[] = $log_parts[1]; // Hora
+        }
+        
+        // $max_length = max(count($sensor_values), count($humidity_values));
+        
+        // Loop through each row of the table
+        for ($index = 0; $index < count($sensor_values); $index++) {
+            ?>
+            <tr>
+                <!-- Row number -->
+                <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="row"><?php echo $index + 1; ?></th>
+                <!-- Temperature value -->
+                <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($sensor_data[$index]) ? $sensor_data[$index] : ''; ?></td>
+                <!-- Humidity value -->
+                <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($sensor_times[$index]) ? $sensor_times[$index] : ''; ?></td>
+            </tr>
+            <?php
+        }
+        
+    } 
+    else {
+        echo "Sensor no especificado.";
     }
     ?>
     </tbody>

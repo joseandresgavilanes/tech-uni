@@ -7,7 +7,7 @@
             <!-- User image container with predefined dimensions -->
             <div style="width: 185px; height: 185px;">
                 <!-- User image with rounded corners -->
-                <img class="w-100 h-100 object-fit-cover rounded" src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="">
+                <img class="w-100 h-100 object-fit-cover rounded"  src="../../img/profile_jose.jpg" alt="Jose Andres Gavilanes picture">
             </div>
             <!-- User information container -->
             <div>
@@ -33,7 +33,7 @@
             <!-- User image container with predefined dimensions -->
             <div style="width: 185px; height: 185px;">
                 <!-- User image with rounded corners -->
-                <img class="w-100 h-100 object-fit-cover rounded" src="../../img/profile_dandadan.png" alt="">
+                <img class="w-100 h-100 object-fit-cover rounded" src="../../img/profile_dandadan.png" alt="Wilmer Cevallos picture">
             </div>
             <!-- User information container -->
             <div>

@@ -14,9 +14,6 @@
                     <?php include '../creators/creators.php';?>
                 </div>
             </div>
-
-            <!-- Include history component -->
-            <?php include '../../history/history.php'; ?>
         </div>
     </div>
 </div>
