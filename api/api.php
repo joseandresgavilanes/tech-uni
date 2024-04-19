@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         // Write temperature data to file
         $resultado = file_put_contents("files/sensors/$name_sensor/valor.txt", $valor_sensor);
-        $resultado_hour = file_put_contents("files/sensors/$name_sensor/valor.txt", $hour_sensor);
+        $resultado_hour = file_put_contents("files/sensors/$name_sensor/hora.txt", $hour_sensor);
         // Log temperature data if write operation successful
         if($resultado !== false && $resultado_hour !== false ){
             file_put_contents("files/sensors/$name_sensor/log.txt", $valor_sensor . PHP_EOL, FILE_APPEND);
