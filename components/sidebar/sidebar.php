@@ -93,7 +93,7 @@ if (!isset($_SESSION['username'])) {
                     <li>
                         <a href="?page=air_conditioning" class="nav-link px-0 align-middle d-flex align-items-center">
                             <span class="material-symbols-outlined mainTextColor">
-                                schedule
+                                mode_fan
                             </span><span class="ms-2 d-none d-sm-inline mainTextColor">Air Conditioning</span>
                         </a>
                     </li>

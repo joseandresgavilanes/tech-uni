@@ -1,4 +1,11 @@
+
+<?php $sensor = isset($_GET['page']) ? $_GET['page'] : '';?>
+
 <table class="mt-4 table table-striped border-0 border-primary">
+
+<h2>
+    <?php echo ucfirst($sensor); ?>
+</h2>
     <!-- Table header -->
     <thead>
         <tr>
@@ -11,10 +18,6 @@
     <!-- Table body -->
     <tbody>
     <?php
-
-    $sensor = isset($_GET['page']) ? $_GET['page'] : '';
-
-    echo $sensor;
 
 
     if (!empty($sensor)) {

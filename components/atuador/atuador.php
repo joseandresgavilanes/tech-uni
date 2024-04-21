@@ -31,6 +31,10 @@ $valor_actuator_air_conditioning = file_get_contents("../../api/files/sensors_ac
                     <span class="right" <?php echo $valor_actuator_led === '1' ? "checked" : "" ?>>on</span>
                 </span>
             </label>
+
+            <span class="material-symbols-outlined">
+lightbulb
+</span>
         </div>
     </div>
     <!-- Second switch card column -->
