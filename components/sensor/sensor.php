@@ -1,11 +1,14 @@
 <?php 
 // Retrieve sensor data from respective files
 $valor_sensor_temperatura = file_get_contents("../../api/files/sensors_actuators/temperature/valor.txt");
+$date_sensor_temperatura = file_get_contents("../../api/files/sensors_actuators/temperature/hora.txt");
 $valor_sensor_humidity = file_get_contents("../../api/files/sensors_actuators/humidity/valor.txt");
+$date_sensor_humidity = file_get_contents("../../api/files/sensors_actuators/humidity/hora.txt");
 $valor_sensor_wind = file_get_contents("../../api/files/sensors_actuators/wind/valor.txt");
+$date_sensor_wind = file_get_contents("../../api/files/sensors_actuators/wind/hora.txt");
 ?>
 
-<div class="row g-4">
+<div class="row g-4" id="bottomSection">
     <!-- Display Temperature -->
     <div class="col-12 col-md-6 col-lg-4">
         <div class="card dashboardCard bg-body-tertiary border-0 d-flex align-items-center justify-content-center flex-row">
@@ -16,7 +19,7 @@ $valor_sensor_wind = file_get_contents("../../api/files/sensors_actuators/wind/v
                         <!-- Display temperature value -->
                         <h5 class="card-title fs-1 fw-bold mb-0"><?php echo $valor_sensor_temperatura; ?>°</h5>
                         <!-- Additional information -->
-                        <p class="mb-0 fs-7 mainTextColor">11.38% Since last month</p>
+                        <p class="mb-0 sensorLastUpdate mainTextColor"><?php echo $date_sensor_temperatura?></p>
                     </div>
                 </div>
             </div>
@@ -37,7 +40,7 @@ $valor_sensor_wind = file_get_contents("../../api/files/sensors_actuators/wind/v
                         <!-- Display humidity value -->
                         <h5 class="card-title fs-1 fw-bold mb-0"><?php echo $valor_sensor_humidity; ?>%</h5>
                         <!-- Additional information -->
-                        <p class="mb-0 fs-7 mainTextColor">11.38% Since last month</p>
+                        <p class="mb-0 sensorLastUpdate mainTextColor"><?php echo $date_sensor_humidity?></p>
                     </div>
                 </div>
             </div>
@@ -58,7 +61,7 @@ $valor_sensor_wind = file_get_contents("../../api/files/sensors_actuators/wind/v
                         <!-- Display wind value -->
                         <h5 class="card-title fs-1 fw-bold mb-0"><?php echo $valor_sensor_wind; ?> km/h</h5>
                         <!-- Additional information -->
-                        <p class="mb-0 fs-7 mainTextColor">11.38% Since last month</p>
+                        <p class="mb-0 sensorLastUpdate mainTextColor"><?php echo $date_sensor_wind?></p>
                     </div>
                 </div>
             </div>

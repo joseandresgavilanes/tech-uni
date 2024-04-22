@@ -5,19 +5,45 @@ header('Content-Type: text/html; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     
     // Process temperature data if available
-    if(isset($_POST['nome']) && $_POST['valor'] && $_POST['hora']){
+    if(isset($_POST['nome'])){
         $name_sensor = $_POST['nome'];
-        $valor_sensor = $_POST['valor'];
-        $hour_sensor = $_POST['hora'];
 
-        // Write temperature data to file
-        $resultado = file_put_contents("files/sensors_actuators/$name_sensor/valor.txt", $valor_sensor);
-        $resultado_hour = file_put_contents("files/sensors_actuators/$name_sensor/hora.txt", $hour_sensor);
-        // Log temperature data if write operation successful
-        if($resultado !== false && $resultado_hour !== false ){
-            file_put_contents("files/sensors_actuators/$name_sensor/log.txt", $valor_sensor . PHP_EOL, FILE_APPEND);
+        if (isset($_POST['valor'])) {
+            
+            $valor_sensor = $_POST['valor'];
+            file_put_contents("files/sensors_actuators/$name_sensor/valor.txt", $valor_sensor);
+            http_response_code(201);
+        }else {
+            http_response_code(500); // Error de servidor al escribir en el archivo
         }
-        http_response_code(200);
+
+
+        if (isset($_POST['hora'])) {
+            
+            $hour_sensor = $_POST['hora'];
+            $result_hour = file_put_contents("files/sensors_actuators/$name_sensor/hora.txt", $hour_sensor);
+            http_response_code(201);
+        }else {
+            http_response_code(500); // Error de servidor al escribir en el archivo
+        }
+
+        
+        if (isset($_POST['valor']) && isset($_POST['hora'])) {
+            
+            $valor_sensor = $_POST['valor'];
+            $hour_sensor = $_POST['hora'];
+            
+            // Write temperature data to file
+            $result = file_put_contents("files/sensors_actuators/$name_sensor/valor.txt", $valor_sensor);
+            $result_hour = file_put_contents("files/sensors_actuators/$name_sensor/hora.txt", $hour_sensor);
+            // Log temperature data if write operation successful
+            if($result !== false && $result_hour !== false ){
+                file_put_contents("files/sensors_actuators/$name_sensor/log.txt", PHP_EOL . $valor_sensor .";". $hour_sensor, FILE_APPEND);
+            }
+            http_response_code(201);
+        }else {
+            http_response_code(500);
+        }
     }
 
 
@@ -31,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         http_response_code(400);
     }
 } else {
-    // 404 response in case something goes wrong
-    http_response_code(404);
+    http_response_code(501);
+    echo 'Method not allowed';
 }
 ?>
 

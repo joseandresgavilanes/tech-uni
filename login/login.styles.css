@@ -11,13 +11,10 @@
 }
 
 .loginFormContainer {
-  width: 400px;
-  height: 450px;
-  padding: 40px;
-  background-color: #082b51;
-}
-
-.loginFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   max-width: 350px;
   background: #f8f9fd;
   background: linear-gradient(

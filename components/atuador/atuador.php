@@ -5,13 +5,13 @@ $valor_actuator_door = file_get_contents("../../api/files/sensors_actuators/door
 $valor_actuator_air_conditioning = file_get_contents("../../api/files/sensors_actuators/air_conditioning/valor.txt");
 ?>
 
-<div class="row g-4 mb-4">
+<div class="row g-4 my-2">
     <div class="col-12 col-md-6 col-lg-4">
-        <div class="card switchCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-row flex-md-column">
+        <div class="card switchCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-column ">
             <!-- Temperature information container -->
             <div>
                 <!-- Temperature title -->
-                <h6 class="fw-bold fs-6 mb-0">LED</h6>
+                <h6 class="text-center fw-bold fs-6 mb-0">LED</h6>
                 <!-- Temperature value container -->
                 <div class="d-flex align-items-center justify-content-between justify-content-md-center">
                     <div class="d-flex flex-column">
@@ -20,39 +20,45 @@ $valor_actuator_air_conditioning = file_get_contents("../../api/files/sensors_ac
                     </div>
                 </div>
             </div>
-            <!-- Switch toggle -->
-            <label class="switch">
-                <!-- Checkbox input -->
-                <input disabled class="cb" type="checkbox" <?php echo $valor_actuator_led === '1' ? "checked" : "" ?> />
-                <!-- Toggle switch -->
-                <span class="toggle">
-                    <!-- Left and right labels for toggle -->
-                    <span class="left" <?php echo $valor_actuator_led === '0' ? "checked" : "" ?> >off</span>
-                    <span class="right" <?php echo $valor_actuator_led === '1' ? "checked" : "" ?>>on</span>
-                </span>
-            </label>
 
-            <span class="material-symbols-outlined">
-lightbulb
-</span>
-        </div>
-    </div>
-    <!-- Second switch card column -->
-    <div class="col-12 col-md-6 col-lg-4">
-        <!-- Switch card with background color, no border, and flex layout -->
-        <div class="card switchCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-row flex-md-column">
-            <!-- Temperature information container -->
-            <div>
-                <!-- Temperature title -->
-                <h6 class="fw-bold fs-6 mb-0">Door</h6>
-                <!-- Temperature value container -->
-                <div class="d-flex align-items-center justify-content-between justify-content-md-center">
-                    <div class="d-flex flex-column">
-                        <!-- Temperature value with bold font -->
-                        <h5 class="card-title fs-1 fw-bold mb-0"><?php echo $valor_actuator_door === '1' ? "On" : "Off" ?> </h5>
-                    </div>
+            <span class="bigIcon material-symbols-outlined">
+            <?php echo $valor_actuator_led === '1' ? "highlight" : "flashlight_off" ?>
+            </span>
+<!-- Switch toggle -->
+<label class="switch">
+    <!-- Checkbox input -->
+    <input disabled class="cb" type="checkbox" <?php echo $valor_actuator_led === '1' ? "checked" : "" ?> />
+    <!-- Toggle switch -->
+    <span class="toggle">
+        <!-- Left and right labels for toggle -->
+        <span class="left" <?php echo $valor_actuator_led === '0' ? "checked" : "" ?> >off</span>
+        <span class="right" <?php echo $valor_actuator_led === '1' ? "checked" : "" ?>>on</span>
+    </span>
+</label>
+
+
+</div>
+</div>
+<!-- Second switch card column -->
+<div class="col-12 col-md-6 col-lg-4">
+    <!-- Switch card with background color, no border, and flex layout -->
+    <div class="card switchCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-column ">
+        <!-- Temperature information container -->
+        <div>
+            <!-- Temperature title -->
+            <h6 class="text-center fw-bold fs-6 mb-0">Door</h6>
+            <!-- Temperature value container -->
+            <div class="d-flex align-items-center justify-content-between justify-content-md-center">
+                <div class="d-flex flex-column">
+                    <!-- Temperature value with bold font -->
+                    <h5 class="card-title text-center fs-1 fw-bold mb-0"><?php echo $valor_actuator_door === '1' ? "On" : "Off" ?> </h5>
                 </div>
             </div>
+        </div>
+
+        <span class="bigIcon material-symbols-outlined">
+            <?php echo $valor_actuator_door === '1' ? "door_open" : "door_front" ?>
+        </span>
             <!-- Switch toggle -->
             <label class="switch">
                 <!-- Checkbox input -->
@@ -69,19 +75,22 @@ lightbulb
     <!-- Third switch card column -->
     <div class="col-12 col-md-6 col-lg-4">
         <!-- Switch card with background color, no border, and flex layout -->
-        <div class="card switchCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-row flex-md-column">
+        <div class="card switchCard bg-body-tertiary border-0 d-flex align-items-center justify-content-between flex-column">
             <!-- Temperature information container -->
-            <div class="text-center">
+            <div>
                 <!-- Temperature title -->
-                <h6 class="fw-bold fs-6 mb-0">Air Conditioning</h6>
+                <h6 class="text-center fw-bold fs-6 mb-0">Air Conditioning</h6>
                 <!-- Temperature value container -->
-                <div class="d-flex align-items-center justify-content-between justify-content-md-center">
-                    <div class="d-flex flex-column text-center">
+                <div class="d-flex align-items-center justify-content-between justify-content-md-center text-center">
+                    <div class="d-flex flex-column">
                         <!-- Temperature value with bold font -->
-                        <h5 class="card-title fs-1 fw-bold mb-0"><?php echo $valor_actuator_air_conditioning === '1' ? "On" : "Off" ?> </h5>
+                        <h5 class="card-title fs-1 text-center fw-bold mb-0"><?php echo $valor_actuator_air_conditioning === '1' ? "On" : "Off" ?> </h5>
                     </div>
                 </div>
             </div>
+            <span class="bigIcon material-symbols-outlined">
+            <?php echo $valor_actuator_air_conditioning === '1' ? "mode_fan" : "mode_fan_off" ?>
+            </span>
             <!-- Switch toggle -->
             <label class="switch">
                 <!-- Checkbox input -->
@@ -95,4 +104,4 @@ lightbulb
             </label>
         </div>
     </div>
-</div>
+</>

@@ -23,6 +23,14 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../global.css">
     <!-- Dashboard-specific styles -->
     <link rel="stylesheet" href="../../dashboard/dashboard.styles.css">
+    <!-- History-specific styles -->
+    <link rel="stylesheet" href="../../history/history.styles.css">
+    <!-- Actuators-specific styles -->
+    <link rel="stylesheet" href="../atuador/atuador.styles.css">
+    <!-- Sensors-specific styles -->
+    <link rel="stylesheet" href="../sensor/sensor.styles.css">
+    <!-- Creators -specific styles -->
+    <link rel="stylesheet" href="../creators/creators.styles.css">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>

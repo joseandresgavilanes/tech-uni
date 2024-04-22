@@ -3,7 +3,7 @@
 
 <table class="mt-4 table table-striped border-0 border-primary">
 
-<h2>
+<h2 class='historyTitle'>
     <?php echo ucfirst($sensor); ?>
 </h2>
     <!-- Table header -->
@@ -24,20 +24,19 @@
         // Read sensor logs
         $sensor_logs = file_get_contents("../../api/files/sensors_actuators/$sensor/log.txt");
         // Split log data into arrays
-        $sensor_values = explode("\n", $sensor_logs);
+        $sensor_values = explode(PHP_EOL, $sensor_logs);
 
         // Dividir los datos de los logs en arrays
-        $log_lines = explode("\n", $sensor_logs);
+        $log_lines = explode(PHP_EOL, $sensor_logs);
     
         // Iterar sobre cada línea de log
         foreach ($log_lines as $log_line) {
             // Dividir cada línea en "valor" y "hora" usando ":" como separador
-            $log_parts = explode(":", $log_line);
+            $log_parts = explode(";", $log_line);
             $sensor_data[] = $log_parts[0]; // Valor
             $sensor_times[] = $log_parts[1]; // Hora
         }
         
-        // $max_length = max(count($sensor_values), count($humidity_values));
         
         // Loop through each row of the table
         for ($index = 0; $index < count($sensor_values); $index++) {
@@ -45,9 +44,9 @@
             <tr>
                 <!-- Row number -->
                 <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="row"><?php echo $index + 1; ?></th>
-                <!-- Temperature value -->
+                <!-- Sensor value -->
                 <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($sensor_data[$index]) ? $sensor_data[$index] : ''; ?></td>
-                <!-- Humidity value -->
+                <!-- Date -->
                 <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($sensor_times[$index]) ? $sensor_times[$index] : ''; ?></td>
             </tr>
             <?php

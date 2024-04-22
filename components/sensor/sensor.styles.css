@@ -1,0 +1,16 @@
+.dashboardCard {
+  height: 165px;
+  padding: 28px 5px 28px 25px;
+  display: flex;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.sensorLastUpdate {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dashboardCard:hover {
+  transform: scale(1.05);
+}
