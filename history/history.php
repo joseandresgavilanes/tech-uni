@@ -1,5 +1,10 @@
 
-<?php $sensor = isset($_GET['page']) ? $_GET['page'] : '';?>
+<?php 
+
+    $sensor = isset($_GET['page']) ? $_GET['page'] : '';
+    $sensor_medida = file_get_contents("../../api/files/sensors_actuators/$sensor/medida.txt");
+
+?>
 
 <table class="mt-4 table table-striped border-0 border-primary">
 
@@ -45,7 +50,7 @@
                 <!-- Row number -->
                 <th class="bg-body-tertiary-secondary py-4 mainTextColor" scope="row"><?php echo $index + 1; ?></th>
                 <!-- Sensor value -->
-                <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($sensor_data[$index]) ? $sensor_data[$index] : ''; ?></td>
+                <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($sensor_data[$index]) ? $sensor_data[$index] . $sensor_medida : ''; ?></td>
                 <!-- Date -->
                 <td class="bg-body-tertiary-secondary py-4 mainTextColor"><?php echo isset($sensor_times[$index]) ? $sensor_times[$index] : ''; ?></td>
             </tr>
