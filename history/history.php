@@ -6,11 +6,11 @@
 
 ?>
 
-<table class="mt-4 table table-striped border-0 border-primary">
-
 <h2 class='historyTitle'>
     <?php echo ucfirst($sensor); ?>
 </h2>
+<table class="mt-4 table table-striped border-0 border-primary">
+
     <!-- Table header -->
     <thead>
         <tr>

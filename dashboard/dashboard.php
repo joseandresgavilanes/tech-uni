@@ -21,6 +21,8 @@
                         </div>
                         <img src="../../img/hero.svg" class='heroImg' alt="hero image">
                     </div>
+
+                    <?php echo "<img src='../../api/images/webcam.jpg?id=".time()."' style='width:100%'>"; ?>
                     <!-- Include sensor component -->
                     <?php include '../sensor/sensor.php';?>
                     <!-- Include atuador component -->

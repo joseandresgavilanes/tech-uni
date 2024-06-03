@@ -2,7 +2,7 @@
         <div class="loginFormContainer">
             <!-- Login form -->
             <div class="loginHeading">Sign In</div>
-            <form action="" class="loginForm" method="POST">
+            <form class="loginForm" method="POST">
                 <!-- Input fields for username and password -->
                 <input required="" class="loginInput" type="text" name="username" id="username" placeholder="Username">
                 <input required="" class="loginInput" type="password" name="password" id="password" placeholder="Password">
