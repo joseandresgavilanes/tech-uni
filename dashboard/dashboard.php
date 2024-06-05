@@ -22,6 +22,11 @@
                         <img src="../../img/hero.svg" class='heroImg' alt="hero image">
                     </div>
 
+                    <form action="../../api/upload.php" method="post" enctype="multipart/form-data">
+      Seleccione uma imagem para fazer upload (para a diretoria "api/images/"):
+      <input type="file" name="imagem" />
+      <input type="submit" value="Upload de Imagem" name="submit" />
+    </form>
                     <?php echo "<img src='../../api/images/webcam.jpg?id=".time()."' style='width:100%'>"; ?>
                     <!-- Include sensor component -->
                     <?php include '../sensor/sensor.php';?>

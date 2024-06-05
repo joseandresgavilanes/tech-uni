@@ -6,9 +6,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verificar se existe o elemento 'imagem' no array $_FILES
     if (isset($_FILES['imagem'])) {
         // Imprimir o array $_FILES['imagem']
-        print_r($_FILES['imagem']);
-        
+        print_r($_FILES['imagem']);        
         // Mover o ficheiro temporário para o diretório correto no servidor com o novo nome
+        // $target_dir = "../../../api/images/webcam.jpg"
+        // echo $_FILES['imagem']
         $target_dir = "images/";
         $target_file = $target_dir . "webcam.jpg";
         
