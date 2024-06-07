@@ -13,22 +13,20 @@
                 <h6 class="text-center fw-bold fs-6 mb-0">LED</h6>
                 <div class="d-flex align-items-center justify-content-between justify-content-md-center">
                     <div class="d-flex flex-column">
-                        <h5 class="card-title fs-1 fw-bold mb-0"><?php echo $valor_actuator_led === '1' ? "On" : "Off" ?></h5>
+                        <h5 id="led-status" class="card-title fs-1 fw-bold mb-0"><?php echo $valor_actuator_led === '1' ? "On" : "Off" ?></h5>
                     </div>
                 </div>
             </div>
-            <span class="bigIcon material-symbols-outlined">
+            <span id="led-icon" class="bigIcon material-symbols-outlined">
                 <?php echo $valor_actuator_led === '1' ? "highlight" : "flashlight_off" ?>
             </span>
             <!-- Switch toggle -->
-            <label class="switch">
-                <input disabled class="cb" type="checkbox" <?php echo $valor_actuator_led === '1' ? "checked" : "" ?>>
-                <span class="toggle">
-                    <span class="left">off</span>
-                    <span class="right">on</span>
-                </span>
-            </label>
+            <button id="toggleLedBtn" class="btn btn-primary">Toggle LED</button>
         </div>
+    </div>
+        </div>
+
+        
     </div>
     <!-- Door -->
     <div class="col-12 col-md-6 col-lg-4">
@@ -79,3 +77,47 @@
         </div>
     </div>
 </div>
+
+
+
+
+<script>
+document.getElementById('toggleLedBtn').addEventListener('click', function() {
+    // Determine the current status of the LED and toggle it
+    const currentStatus = <?php echo $valor_actuator_led === '1' ? '1' : '0'; ?>;
+    const newStatus = currentStatus === 1 ? 0 : 1;
+
+    // Get current date and time for 'hora' parameter
+    const now = new Date();
+    const formattedDateTime = now.getFullYear() + '/' +
+        ('0' + (now.getMonth() + 1)).slice(-2) + '/' +
+        ('0' + now.getDate()).slice(-2) + ' ' +
+        ('0' + now.getHours()).slice(-2) + ':' +
+        ('0' + now.getMinutes()).slice(-2) + ':' +
+        ('0' + now.getSeconds()).slice(-2);
+
+    // Make the POST request to toggle the LED
+    fetch('http://127.0.0.1//tech-uni/api/api.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'nome': 'led',
+            'valor': newStatus,
+            'hora': formattedDateTime
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Update the UI to reflect the new status
+            document.getElementById('led-status').innerText = newStatus === 1 ? 'On' : 'Off';
+            document.getElementById('led-icon').innerText = newStatus === 1 ? 'highlight' : 'flashlight_off';
+        } else {
+            alert('Error toggling LED');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
